@@ -1,0 +1,102 @@
+# 🔍 Nmap Scanning Commands
+
+This README explains a set of commonly used **Nmap** commands for network scanning. Each command includes a short description and usage notes. Use this file as a reference or learning note for GitHub.
+
+---
+
+## Project Description
+
+A simple documentation file for Nmap commands used for host discovery, port scanning, OS detection, and aggressive scanning. Suitable to upload to GitHub as a quick reference.
+
+---
+
+## Commands Explained
+
+### 1. Ping Scan (Host Discovery)
+
+```bash
+nmap -sn 10.0.2.0/24
+```
+
+**Description:** Performs a *ping scan* on the subnet `10.0.2.0/24` to list hosts that are **up** without scanning ports.
+
+**When to use:** Use this for quick network discovery before doing detailed scans.
+
+---
+
+### 2. Top 20 Ports Scan
+
+```bash
+nmap --top-ports 20 10.0.2.4
+```
+
+**Description:** Scans the **top 20 most commonly used ports** on the target `10.0.2.4` to quickly identify important services.
+
+---
+
+### 3. OS Detection
+
+```bash
+nmap -O 10.0.2.4
+```
+
+**Description:** Attempts to detect the **operating system** of the target host by analyzing TCP/IP responses and fingerprints.
+
+**Note:** Accuracy depends on network conditions and target configuration.
+
+---
+
+### 4. Aggressive Scan
+
+```bash
+nmap -A 10.0.2.4
+```
+
+**Description:** Performs an **aggressive scan** that includes:
+
+* OS detection
+* Version detection (`-sV`)
+* Nmap script scanning
+* Traceroute
+
+This provides a comprehensive profile of the target and is useful in a lab environment for reconnaissance.
+
+---
+
+### 5. Specific Port Scan
+
+```bash
+nmap -p 80 10.0.2.4
+```
+
+**Description:** Scans only **port 80 (HTTP)** on the target to check if it is open and to identify the service/version running on that port.
+
+---
+
+## Quick Summary
+
+| Command                        | Purpose              | Target      | Notes                     |
+| ------------------------------ | -------------------- | ----------- | ------------------------- |
+| `nmap -sn 10.0.2.0/24`         | Host discovery       | Subnet      | Lists active hosts only   |
+| `nmap --top-ports 20 10.0.2.4` | Quick port scan      | Single host | Scans top 20 ports        |
+| `nmap -O 10.0.2.4`             | OS detection         | Single host | Uses TCP/IP fingerprints  |
+| `nmap -A 10.0.2.4`             | Aggressive/full scan | Single host | Gathers advanced info     |
+| `nmap -p 80 10.0.2.4`          | Port-specific scan   | Single host | Checks a specific service |
+
+---
+
+## Important Notes
+
+* Always perform scans **with permission** from the network or system owner. Unauthorized scanning can be illegal and unethical.
+* Combine options like `-sV` (service/version detection) with `-p` to get more detailed results.
+* Use these commands in a controlled lab or authorized assessment only.
+
+---
+
+## License
+
+Free for personal and educational use.
+
+---
+
+If you want the file exported as `README.md`, or if you'd like additional examples (Nmap output samples, command variations, or a translated Arabic version included together), tell me and I'll prepare it.
