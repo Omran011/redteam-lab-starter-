@@ -1,0 +1,61 @@
+When hackers or security testers look at a website, what they see is usually just the front entrance 🚪.
+But websites often have hidden files, secret directories, or parameters that are not publicly shown.
+
+👉 If attackers find these hidden spots, they can sometimes discover sensitive information or even vulnerabilities.
+
+So how do we find these “hidden doors”?
+That’s where ffuf (Fuzz Faster U Fool) comes in.
+
+🔑 What is ffuf?
+ffuf is a fast web fuzzing tool written in Go.
+It is mainly used to discover hidden files, directories, and parameters on a website.
+Security researchers and bug bounty hunters love it because it’s blazing fast ⚡ and easy to use.
+📖 A Simple Story
+Think of a giant hotel 🏨:
+
+Only some doors are shown on the hotel map.
+But you have a keyring with thousands of keys 🔑.
+You try each one quickly to see which doors unlock.
+👉 Suddenly, you find a secret room 🚪✨ that no one told you about.
+
+That’s ffuf for websites:
+
+Keys = Wordlist (list of possible paths like admin, backup.zip, config)
+Doors = Website endpoints
+Secret rooms = Hidden files or directories
+⚡ Example of Using ffuf
+Let’s say we want to test a site:
+
+ffuf -u https://example.com/FUZZ -w /usr/share/wordlists/common.txt
+Here’s what happens:
+
+-u → The target URL (the word FUZZ is replaced by words from the list).
+-w → The wordlist (possible paths to test).
+👉 ffuf will try:
+
+https://example.com/admin
+https://example.com/login
+https://example.com/backup.zip
+and thousands more…
+If a response is valid, ffuf shows it as a found path ✅.
+
+🛡️ Why ffuf is Important
+🔍 Finds hidden files/directories developers forgot to hide.
+⚡ Super fast (much quicker than older tools).
+🧑‍💻 Bug bounty hunters’ favorite for quick reconnaissance.
+🎯 Helps discover entry points for further testing.
+🌍 Real-World Use Cases
+Discovering /admin pages not linked publicly.
+Finding forgotten backup files (backup.zip, db.sql).
+Identifying API endpoints (/api/v1/users).
+Fuzzing GET/POST parameters to check for hidden features.
+🧠 Final Thoughts
+ffuf is like having a master keyring 🔑 for the web.
+It doesn’t break in by force — it just checks every possible door until it finds one that opens.
+
+For security professionals and bug bounty hunters, it’s one of the most powerful ways to discover the “hidden parts” of the web that others miss.
+
+👉 In short:
+
+ffuf = 🔎 Discover hidden stuff fast.
+Easy, powerful, and a must-have tool for web security testing.
